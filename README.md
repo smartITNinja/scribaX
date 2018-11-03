@@ -15,10 +15,12 @@ Because we don't need a massive amount of software to address a given request. S
   <img width="700px" src="https://smartit.ninja/images/scribaX/scribaX-flow-1.jpg">
 </p>
 
-The data flow is always unidirectional.
-All shareable data will be persisted in the store.
+The data flow is always unidirectional and all shareable data will be persisted in the store.
+
 The only way to add, update or delete data is by explicitly executing a self provided method called "commit".
+
 Every time a "commit" action is performed, the store will notify this update *one and only* to the "notifier" function.
+
 Within the "notifier" function, you can customize how your application "reacts" to this event.
 
 ## The Store
