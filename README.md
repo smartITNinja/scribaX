@@ -17,7 +17,7 @@ Because we don't need a massive amount of software to address a given request. S
 
 The data flow is always unidirectional and all shareable data will be persisted in the store.
 
-The only way to add, update or delete data is by explicitly executing a self provided method called "commit".
+The only way to update data is by explicitly executing a self provided method called "commit".
 
 Every time a "commit" action is performed, the store will notify this update *one and only* to the "notifier" function.
 
@@ -48,7 +48,7 @@ const store = new Store({
 });
 ```
 
-Plain and simple, "state" data is the one you add/update/delete by invoking the "commit" method:
+Plain and simple, "state" data is the one you update(mutate) by invoking the "commit" method:
 
 ```javascript
 store.commit('round',4);
@@ -84,7 +84,7 @@ function notifier(args) {
 
 ## What functionalites are not present here?
 
-* Reducers / Mutations: The goal of this project is to provided "only data" and not mixing "data" with "business logic".
+* Reducers / Mutations: The goal of this project is to provide "only data" and not mixing "data" with "business logic".
 * Setters: A setter would be just another "business logic" snippet.
 * Actions: Again, more bussiness logic.
 
