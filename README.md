@@ -103,6 +103,7 @@ function notifier(args) {
 ## Acknowledgements
 
 Thanks to the incredible people who maintain projects such as [Redux](http://redux.js.org), [Vuex](http://vuex.vuejs.org) and [MobX](http://mobx.js.org) et. al. 
+
 And thanks to all the people who share their knowledge and experiences freely on the Internet, you guys inspired this project.
 
 ## License
