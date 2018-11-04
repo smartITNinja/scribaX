@@ -41,7 +41,7 @@ const store = new Store({
         computed: {
                 Comp1: {
                         code: function () {
-                                return this.helmet + this.ronda ;
+                                return this.helmet + this.round ;
                         }
                 }
         }
