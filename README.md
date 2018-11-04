@@ -88,10 +88,10 @@ function notifier(args) {
 * Setters: A setter would be just another "business logic" snippet.
 * Actions: Again, more bussiness logic.
 
-## Installation
+## Installation via CDN
 
 ``` javascript
-<script src="/path.to/scribaX.js"></script>
+<script src="https://unpkg.com/scribax"></script>
 ```
 
 ## Reach me out
