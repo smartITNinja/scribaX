@@ -1,5 +1,5 @@
 /**
- * scribaX v1.0
+ * scribaX v1.0.3
  * (c) 2018 Daniel Vukasovich
  * @license MIT
  */
@@ -33,6 +33,12 @@ const Store = (function(args) {
         }
 
         local.commit = function(type,payload){
+                if(!validator[type]) {
+                        throw new Error(`state ${type} has no schema defined`);
+                }
+                if(typeof payload !== validator[type]) {
+                        throw new Error(`state ${type} does not match its schema type`);
+                }
                 Object.defineProperty(local,type, {
                         writable: true
                 });
@@ -41,6 +47,20 @@ const Store = (function(args) {
                         writable: false
                 });
                 window[notifier.notifier]({state: type,value: local[type]});
+        }
+
+        const validator = {} ;
+        if(args.schema) {
+                for (var name in args.schema) {
+                        const valid = ['string','number','boolean','object'];
+                        if(!valid.includes(args.schema[name])) {
+                                throw new Error(`state ${args.schema[name]} schema type is not valid - must be: string, number, boolean or object`);
+                        }
+                        Object.defineProperty(validator,name, {
+                                value: args.schema[name],
+                                writable: false
+                        });
+                }
         }
 
         const notifier = {} ;
