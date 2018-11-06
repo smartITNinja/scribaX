@@ -6,7 +6,7 @@ Because we don't need a massive amount of software to address a given request. S
 
 ## Goals
 * Data Integrity - A single source of truth (SSOT)
-* Predictability - All the views have access to the same data
+* Predictability - All the views have access to the same value and type of any given data.
 * Enforced security - Data can only be mutated invoking a known action and not by unknown sources or actions.
 * Easy of use - Subscribe to multiple or single property change in the store and customize how your application responds to data changes.
 
@@ -31,12 +31,19 @@ A sample store would be something like this:
 ```javascript
 const store = new Store({
         state: {
-                cards: [],
+                mazo: [],
+                engine: false,
                 name: null,
                 win: 0,
-                isLogged: false,
                 helmet: 0,
                 round: 0
+        },
+        schema: {
+                helmet: 'number',
+                name: 'string',
+                engine: 'boolean',
+                cards: 'object',
+                round: 'number'
         },
         computed: {
                 Comp1: {
@@ -60,6 +67,22 @@ And "computed" data is derived state based on store state, by defining "getters"
 function () {
   return this.helmet + this.round ;
 }
+```
+
+## Validation Rules
+
+In order to achieve predictability scribaX performs schema validation during updates and insertions.
+
+To specify validation rules when creating a new store use the "schema" property:
+
+```javascript
+        schema: {
+                helmet: 'number',
+                name: 'string',
+                engine: 'boolean',
+                cards: 'object',
+                round: 'number'
+        }
 ```
 
 ## Reactions to updates
@@ -93,6 +116,9 @@ function notifier(args) {
 ``` javascript
 <script src="https://unpkg.com/scribax"></script>
 ```
+
+## Demos
+- [**Basic demo**](https://smartit.ninja/scribaX-example.html) 
 
 ## Reach me out
 
