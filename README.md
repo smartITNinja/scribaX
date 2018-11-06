@@ -71,7 +71,7 @@ function () {
 
 ## Validation Rules
 
-In order to achieve predictability scribaX performs schema validation during updates and insertions.
+In order to achieve predictability scribaX performs schema validation during updates.
 
 To specify validation rules when creating a new store use the "schema" property:
 
