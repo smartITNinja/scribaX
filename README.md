@@ -31,10 +31,9 @@ A sample store would be something like this:
 ```javascript
 const store = new Store({
         state: {
-                mazo: [],
+                cards: [],
                 engine: false,
                 name: null,
-                win: 0,
                 helmet: 0,
                 round: 0
         },
