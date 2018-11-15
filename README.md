@@ -117,7 +117,8 @@ function notifier(args) {
 ```
 
 ## Demos
-- [**Basic demo**](https://smartit.ninja/scribaX-example.html) 
+- [**Vanilla JavaScript demo**](https://smartit.ninja/scribaX/scribaX-vanillaJS.html) 
+- [**React demo**](https://smartit.ninja/scribaX/scribaX-react.html) 
 
 ## Reach me out
 
