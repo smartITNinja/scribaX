@@ -68,6 +68,16 @@ function () {
 }
 ```
 
+You can replace the store's root state at any given time by invoking the "replaceState" method:
+
+```javascript
+var data = JSON.parse(document.querySelector('initialState').getAttribute('__APP_INITIAL_STATE__'));
+store.replaceState(data);
+```
+
+With "replaceState", it throws out the current state and replaces it with only what you provide.  
+Use this only for "state hydration" purposes.
+
 ## Validation Rules
 
 In order to achieve predictability scribaX performs schema validation during updates.
@@ -119,6 +129,7 @@ function notifier(args) {
 ## Demos
 - [**Vanilla JavaScript demo**](https://smartit.ninja/scribaX/scribaX-vanillaJS.html) 
 - [**React demo**](https://smartit.ninja/scribaX/scribaX-react.html) 
+- [**Server Side Rendering demo**](https://smartit.ninja/scribaX/scribaX-SSR.html) 
 
 ## Reach me out
 
