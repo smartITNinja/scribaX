@@ -1,11 +1,12 @@
 /**
- * scribaX v1.0.3
+ * scribaX v1.0.4
  * (c) 2018 Daniel Vukasovich
  * @license MIT
  */
 
 'use strict' ;
 
+const rel = 'v1.0.4';
 const Store = (function(args) {
 
         if(!args.state) {
@@ -49,6 +50,15 @@ const Store = (function(args) {
                 window[notifier.notifier]({state: type,value: local[type]});
         }
 
+        local.replaceState = function(payload){
+                if(!payload) {
+                         throw new Error(`no store state was provided`);
+                }
+                Object.keys(payload).map((elem) => {
+                        local.commit(elem,payload[elem]);
+                });
+        }
+
         const validator = {} ;
         if(args.schema) {
                 for (var name in args.schema) {
@@ -71,6 +81,8 @@ const Store = (function(args) {
                 });
         }
 
+        console.log('%cscribaX ' + rel + ' initialized...', 'color: green; font-weight: bold;');
+        window.__SCRIBAX_STATE__ = 'initialized';
         return local ;
-
+        
 });
